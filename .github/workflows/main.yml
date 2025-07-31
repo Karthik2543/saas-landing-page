@@ -1,4 +1,4 @@
-name: Deploy React to S3
+ename: Deploy React to S3
 
 permissions:
   id-token: write
@@ -32,7 +32,7 @@ jobs:
           mask-aws-account-id: "no"
 
       - name: Deploy to S3
-        run: aws s3 sync build/ s3://reactdevopsgit --delete --region your-aws-region
+        run: aws s3 sync build/ s3://reactdevopsgit --delete --region your-secrets.aws-region
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
