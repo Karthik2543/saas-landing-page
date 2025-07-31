@@ -32,7 +32,7 @@ jobs:
           mask-aws-account-id: "no"
 
       - name: Deploy to S3
-        run: aws s3 sync build/ s3://reactdevopsgit --delete --region your-secrets.aws-region
+        run: aws s3 sync build/ s3://reactdevopsgit --delete --region your-aws-region
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
